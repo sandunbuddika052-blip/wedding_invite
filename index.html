@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  
+  <title>Yashodya &amp; Vihanga — December 14, 2026 · Deandra Bolgoda</title>
+  <meta name="description" content="Yashodya Wickramaratne and Vihanga Aluthge are getting married on December 14, 2026 at Deandra Bolgoda, Sri Lanka. Find ceremony details, schedule, location, and RSVP." />
+  
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:title" content="Yashodya &amp; Vihanga — December 14, 2026 · Deandra Bolgoda" />
+  <meta property="og:description" content="We warmly invite you to be part of the wedding celebration of Yashodya &amp; Vihanga." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://savethedate.lk/yashodya&amp;vihanga" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80" />
+  
+  <!-- Google Fonts: Marcellus + EB Garamond + Jost -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Marcellus&display=swap" rel="stylesheet" />
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css" />
+<body class="locked">
+
+  <!-- ═══════════════════════════════════════════════════════════
+       ✨ EDITORIAL LUXURY INTRO SCREEN (Tap to Open)
+  ═══════════════════════════════════════════════════════════════ -->
+  <div class="intro-screen" id="introScreen">
+    <canvas id="introCanvas" class="intro-canvas"></canvas>
+
+    <div class="intro-card-inner">
+      <!-- Monogram Seal -->
+      <div class="intro-monogram-seal">
+        <span class="seal-letters">Y&amp;V</span>
+      </div>
+
+      <!-- Personalized Guest Badge -->
+      <div class="intro-guest-badge" id="introGuestBadge">
+        <span>Warmly Welcoming</span>
+        <strong id="introGuestName">Dear Guest</strong>
+      </div>
+
+      <p class="intro-pretitle">You Are Cordially Invited To Celebrate The Wedding Of</p>
+
+      <h1 class="intro-couple-title">
+        Yashodya <span class="intro-amp">&amp;</span> Vihanga
+      </h1>
+
+      <p class="intro-date-line">
+        Monday, December 14, 2026 &middot; Deandra Bolgoda
+      </p>
+
+      <!-- The Magnetic Open Invitation Button -->
+      <button type="button" class="btn-open-invitation" id="enterBtn" aria-label="Open Wedding Invitation">
+        <span class="btn-shimmer"></span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+          <polyline points="22,6 12,13 2,6"></polyline>
+        </svg>
+        <span>Open Invitation</span>
+      </button>
+
+      <p class="intro-tap-hint">Tap to open &amp; experience our day</p>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       1. FIXED HEADER & NAVIGATION
+  ═══════════════════════════════════════════════════════════════ -->
+  <header class="site-header" id="siteHeader">
+    <div class="nav-container">
+      <!-- Desktop Links (Left) -->
+      <nav class="nav-links">
+        <a href="#home" class="nav-link">Home</a>
+        <a href="#story" class="nav-link">Our Story</a>
+        <a href="#schedule" class="nav-link">Schedule</a>
+        <a href="#venue" class="nav-link">Venue</a>
+        <a href="#gallery" class="nav-link">Gallery</a>
+      </nav>
+
+      <!-- Center Monogram -->
+      <a href="#home" class="nav-brand">
+        Y&amp;V <span class="brand-date">12.14.26</span>
+      </a>
+
+      <!-- Right Actions -->
+      <div class="nav-actions">
+        <a href="#rsvp" class="btn-nav-rsvp">RSVP</a>
+        <button type="button" class="menu-toggle-btn" id="menuToggleBtn" aria-label="Open Navigation Menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="4" y1="7" x2="20" y2="7"></line>
+            <line x1="4" y1="12" x2="20" y2="12"></line>
+            <line x1="4" y1="17" x2="20" y2="17"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Drawer -->
+  <div class="mobile-nav-overlay" id="mobileNavOverlay">
+    <div class="mobile-nav-header">
+      <span class="font-display" style="letter-spacing:0.18em; font-size:1.1rem;">Y&amp;V · 12.14.26</span>
+      <button type="button" class="mobile-nav-close" id="mobileNavClose" aria-label="Close Navigation Menu">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+    <nav class="mobile-nav-links">
+      <a href="#home" class="mobile-nav-item">Home</a>
+      <a href="#countdown" class="mobile-nav-item">Countdown</a>
+      <a href="#details" class="mobile-nav-item">Ceremony &amp; Reception</a>
+      <a href="#story" class="mobile-nav-item">Our Story</a>
+      <a href="#schedule" class="mobile-nav-item">Schedule</a>
+      <a href="#venue" class="mobile-nav-item">Venue &amp; Travel</a>
+      <a href="#gallery" class="mobile-nav-item">Gallery</a>
+      <a href="#artisans" class="mobile-nav-item">Artisans</a>
+      <a href="#rsvp" class="mobile-nav-item text-copper" style="color:#C97D5D;">RSVP</a>
+    </nav>
+  </div>
+
+  <main>
+    <!-- ═══════════════════════════════════════════════════════════
+         2. HERO SECTION (100dvh)
+    ═══════════════════════════════════════════════════════════════ -->
+    <section class="hero-sec" id="home">
+      <!-- High-res background image -->
+      <img
+        src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=2000&q=85"
+        alt="Yashodya and Vihanga celebrating love"
+        class="hero-bg-img"
+      />
+      <div class="hero-overlay"></div>
+
+      <div class="hero-content">
+        <p class="hero-subhead">We're Getting Married!</p>
+        <h1 class="hero-title">
+          Yashodya <span class="amp">&amp;</span> Vihanga
+        </h1>
+        <p class="hero-date-tracker">12 . 14 . 26</p>
+        <p class="hero-location-italic">Deandra Bolgoda · Sri Lanka</p>
+      </div>
+
+      <a href="#countdown" class="hero-scroll-btn" aria-label="Scroll down to wedding countdown">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+      </a>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         3. COUNTDOWN TIMER SECTION (Requested with countdown)
+    ═══════════════════════════════════════════════════════════════ -->
+    <section class="countdown-sec section-pad text-center" id="countdown">
+      <div class="container-medium">
+        
+        <!-- Personalized Guest Welcome (from ?guest= or ?to= query param) -->
+        <div class="countdown-guest-pill" id="guestWelcomePill">
+          <span>Warmly Welcoming</span>
+          <strong id="guestWelcomeName">Dear Guest</strong>
+        </div>
+
+        <p class="countdown-tagline">Until We Say &ldquo;I Do&rdquo;</p>
+        <h2 class="countdown-heading">Countdown To Our Wedding</h2>
+
+        <!-- Ticking Digits Grid -->
+        <div class="countdown-grid">
+          <div class="countdown-unit">
+            <span class="countdown-number" id="cdDays">00</span>
+            <span class="countdown-label">Days</span>
+          </div>
+          <div class="countdown-divider">:</div>
+          <div class="countdown-unit">
+            <span class="countdown-number" id="cdHours">00</span>
+            <span class="countdown-label">Hours</span>
+          </div>
+          <div class="countdown-divider">:</div>
+          <div class="countdown-unit">
+            <span class="countdown-number" id="cdMinutes">00</span>
+            <span class="countdown-label">Minutes</span>
+          </div>
+          <div class="countdown-divider">:</div>
+          <div class="countdown-unit">
+            <span class="countdown-number" id="cdSeconds">00</span>
+            <span class="countdown-label">Seconds</span>
+          </div>
+        </div>
+
+        <!-- Add to Calendar Actions -->
+        <div class="cal-actions">
+          <a
+            href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Wedding+of+Yashodya+%26+Vihanga&dates=20261214T043000Z/20261214T110000Z&details=Wedding+celebration+of+Yashodya+%26+Vihanga+at+Deandra+Bolgoda.+Auspicious+Poruwa+Ceremony+at+10:50+AM.&location=Deandra+Bolgoda%2C+Bolgoda+Lake%2C+Sri+Lanka"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-primary"
+          >
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="16" y1="2" x2="16" y2="6"></line>
+              <line x1="8" y1="2" x2="8" y2="6"></line>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>
+            Add to Google Calendar
+          </a>
+          <button type="button" class="btn-secondary" id="downloadIcsBtn">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            Download Apple / .ICS
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         4. CEREMONY & RECEPTION DETAILS (Editorial Offset Frames)
+    ═══════════════════════════════════════════════════════════════ -->
+    <section class="details-sec section-pad" id="details">
+      <div class="container-wide">
+        
+        <p class="details-date-lead">
+          Monday, the fourteenth of December, two thousand twenty-six
+        </p>
+
+        <div class="events-editorial-grid">
+          
+          <!-- Card 1: Poruwa Ceremony -->
+          <div class="event-editorial-card">
+            <div class="offset-frame">
+              <div class="offset-frame-border"></div>
+              <div class="offset-frame-inner">
+                <img
+                  src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=800&q=80"
+                  alt="Traditional Poruwa Ceremony and blessings"
+                  class="offset-frame-img"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+
+            <h2 class="event-title">Ceremony</h2>
+            <p class="event-time-lead">10:50 in the morning</p>
+            <div class="event-location-box">
+              <p class="loc-name">Auspicious Poruwa &amp; Traditional Rituals</p>
+              <p>Deandra Bolgoda · Lakeside Poruwa Lawn</p>
+              <p>Arrivals &amp; Welcome Refreshments from 10:00 AM</p>
+            </div>
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=Deandra+Bolgoda"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="link-editorial-map"
+            >
+              View Map &amp; Directions &rarr;
+            </a>
+          </div>
+
+          <!-- Card 2: Reception & Banquet -->
+          <div class="event-editorial-card" style="margin-top: 1.5rem;">
+            <div class="offset-frame alt">
+              <div class="offset-frame-border"></div>
+              <div class="offset-frame-inner">
+                <img
+                  src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=80"
+                  alt="Wedding reception banquet by the lake"
+                  class="offset-frame-img"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+
+            <h2 class="event-title">Reception</h2>
+            <p class="event-time-lead">12:30 &mdash; 4:00 in the afternoon</p>
+            <div class="event-location-box">
+              <p class="loc-name">The Grand Ballroom &amp; Waterfront Lawn</p>
+              <p>Deandra Bolgoda · Bolgoda Lake, Sri Lanka</p>
+              <p>Cake Cutting, Dining Banquet &amp; Celebrations</p>
+            </div>
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=Deandra+Bolgoda"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="link-editorial-map"
+            >
+              View Map &amp; Directions &rarr;
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         5. TYPOGRAPHIC WATERMARK BANNER
+    ═══════════════════════════════════════════════════════════════ -->
+    <div class="watermark-banner" aria-hidden="true">
+      <p class="watermark-text">forever</p>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         6. OUR STORY ("See how it all started")
+    ═══════════════════════════════════════════════════════════════ -->
+    <section class="story-sec section-pad" id="story">
+      <div class="container-medium">
+        
+        <div class="story-header text-center">
+          <p class="countdown-tagline">Our Journey</p>
+          <h2 class="story-heading">See How It All Started</h2>
+          <p class="story-subtitle">
+            Two hearts, one auspicious moment, and a love to last a lifetime.
+          </p>
+        </div>
+
+        <div class="story-quotes-grid">
+          <div class="story-quote-card">
+            <blockquote>
+              <p>&ldquo;From the very first moment, I knew her smile was where my search ended. She brings warmth, laughter, and so much peace into my world.&rdquo;</p>
+              <cite>&mdash; Vihanga</cite>
+            </blockquote>
+          </div>
+          <div class="story-quote-card">
+            <blockquote>
+              <p>&ldquo;He stood beside me with unwavering patience, understanding, and kindness. In his gentle love, I found my forever home.&rdquo;</p>
+              <cite>&mdash; Yashodya</cite>
+            </blockquote>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Scenic Banner -->
+      <div class="story-scenic-banner">
+        <img
+          src="https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=1920&q=85"
+          alt="Scenic romantic lakefront view"
+          class="story-scenic-img"
+          loading="lazy"
+        />
+        <div class="story-scenic-overlay"></div>
+        <p class="story-scenic-caption">
+          A promise of forever &mdash; Bolgoda Lake, 2026
+        </p>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         7. ORDER OF EVENTS (TIMELINE)
+    ═══════════════════════════════════════════════════════════════ -->
+    <section class="schedule-sec section-pad" id="schedule">
+      <div class="container-medium">
+        
+        <div class="schedule-header text-center">
+          <p class="countdown-tagline">Celebration</p>
+          <h2 class="story-heading">Order of Events</h2>
+          <p class="story-subtitle">
+            A traditional Sri Lankan wedding celebration surrounded by nature
+          </p>
+        </div>
+
+        <div class="schedule-list">
+          
+          <div class="schedule-item">
+            <span class="schedule-time">10:00 AM</span>
+            <span class="schedule-node"></span>
+            <div class="schedule-content">
+              <span class="schedule-mobile-time">10:00 AM</span>
+              <h3 class="schedule-item-title">Welcome &amp; Guest Arrival</h3>
+              <p class="schedule-item-desc">
+                Warm welcome of family and friends with traditional drumming (Magul Bera) and refreshing drinks by scenic Bolgoda Lake.
+              </p>
+            </div>
+          </div>
+
+          <div class="schedule-item">
+            <span class="schedule-time">10:50 AM</span>
+            <span class="schedule-node"></span>
+            <div class="schedule-content">
+              <span class="schedule-mobile-time">10:50 AM (Auspicious Time)</span>
+              <h3 class="schedule-item-title">Auspicious Poruwa Ceremony</h3>
+              <p class="schedule-item-desc">
+                The sacred tying of the marriage knot, exchange of rings, and chanting of traditional Jayamangala Gatha blessings.
+              </p>
+            </div>
+          </div>
+
+          <div class="schedule-item">
+            <span class="schedule-time">11:45 AM</span>
+            <span class="schedule-node"></span>
+            <div class="schedule-content">
+              <span class="schedule-mobile-time">11:45 AM</span>
+              <h3 class="schedule-item-title">Oil Lamp &amp; Champagne Toast</h3>
+              <p class="schedule-item-desc">
+                Lighting of the ceremonial brass oil lamp, ceremonial cake cutting, and celebratory champagne toast.
+              </p>
+            </div>
+          </div>
+
+          <div class="schedule-item">
+            <span class="schedule-time">12:30 PM</span>
+            <span class="schedule-node"></span>
+            <div class="schedule-content">
+              <span class="schedule-mobile-time">12:30 PM</span>
+              <h3 class="schedule-item-title">Wedding Banquet Lunch</h3>
+              <p class="schedule-item-desc">
+                A sumptuous feast celebrating Sri Lankan and international culinary flavors, served with lake views.
+              </p>
+            </div>
+          </div>
+
+          <div class="schedule-item">
+            <span class="schedule-time">02:00 PM</span>
+            <span class="schedule-node"></span>
+            <div class="schedule-content">
+              <span class="schedule-mobile-time">02:00 PM</span>
+              <h3 class="schedule-item-title">Music, Photos &amp; Congratulations</h3>
+              <p class="schedule-item-desc">
+                Joyful moments with family and friends, lively music, and capturing memories.
+              </p>
+            </div>
+          </div>
+
+          <div class="schedule-item">
+            <span class="schedule-time">03:30 PM</span>
+            <span class="schedule-node"></span>
+            <div class="schedule-content">
+              <span class="schedule-mobile-time">03:30 PM</span>
+              <h3 class="schedule-item-title">Going Away Blessing</h3>
+              <p class="schedule-item-desc">
+                Heartfelt wishes and farewell blessings as Yashodya &amp; Vihanga embark on their journey together.
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         8. VENUE & TRAVEL
+    ═══════════════════════════════════════════════════════════════ -->
+    <section class="venue-sec section-pad" id="venue">
+      <div class="container-medium">
+        
+        <div class="text-center" style="margin-bottom: 4rem;">
+          <p class="countdown-tagline">The Destination</p>
+          <h2 class="story-heading">Travel &amp; Venue</h2>
+          <p class="story-subtitle">
+            All wedding celebrations will take place on the tranquil waters of Bolgoda Lake
+          </p>
+        </div>
+
+        <div class="venue-card-editorial">
+          <div class="venue-grid-info">
+            <span class="venue-label">Venue</span>
+            <div>
+              <h3 class="venue-name-title">Deandra Bolgoda</h3>
+              <div class="venue-address-p">
+                <p>Bolgoda Lake, Moratuwa / Panadura, Sri Lanka</p>
+                <p style="margin-top:0.4rem;"><strong>Dress Code:</strong> Formal / Traditional Sri Lankan / Pastel &amp; Gold</p>
+                <p style="margin-top:0.2rem; font-style:italic;">Ample private on-site parking available for all guests.</p>
+              </div>
+            </div>
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=Deandra+Bolgoda"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-primary"
+              style="padding:0.8rem 1.6rem; font-size:0.72rem;"
+            >
+              Open Google Maps &rarr;
+            </a>
+          </div>
+        </div>
+
+        <!-- Interactive Map Embed -->
+        <div class="venue-map-wrap">
+          <iframe
+            class="venue-map-iframe"
+            title="Deandra Bolgoda Location Map"
+            src="https://maps.google.com/maps?q=Deandra%20Bolgoda&t=&z=15&ie=UTF8&iwloc=&output=embed"
+            loading="lazy"
+            allowfullscreen
+          ></iframe>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         9. PHOTO GALLERY
+    ═══════════════════════════════════════════════════════════════ -->
+    <section class="gallery-sec section-pad" id="gallery">
+      <div class="container-wide">
+        
+        <div class="text-center" style="margin-bottom: 4rem;">
+          <p class="countdown-tagline">Captured Moments</p>
+          <h2 class="story-heading">Photo Gallery</h2>
+          <p class="story-subtitle">Glimpses of our love story and memories</p>
+        </div>
+
+        <div class="gallery-grid" id="galleryGrid">
+          <!-- Populated dynamically from config, with fallback cards -->
+          <div class="gallery-card" onclick="openLightbox('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=85')">
+            <div class="gallery-card-inner">
+              <img
+                src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80"
+                alt="Together is our favorite place to be"
+                class="gallery-card-img"
+                loading="lazy"
+              />
+            </div>
+            <p class="gallery-card-caption">&ldquo;Together is our favorite place to be&rdquo;</p>
+          </div>
+
+          <div class="gallery-card" onclick="openLightbox('https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=1200&q=85')">
+            <div class="gallery-card-inner">
+              <img
+                src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=800&q=80"
+                alt="Hand in hand towards forever"
+                class="gallery-card-img"
+                loading="lazy"
+              />
+            </div>
+            <p class="gallery-card-caption">&ldquo;Hand in hand towards forever&rdquo;</p>
+          </div>
+
+          <div class="gallery-card" onclick="openLightbox('https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1200&q=85')">
+            <div class="gallery-card-inner">
+              <img
+                src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=80"
+                alt="Every love story is beautiful"
+                class="gallery-card-img"
+                loading="lazy"
+              />
+            </div>
+            <p class="gallery-card-caption">&ldquo;Every love story is beautiful&rdquo;</p>
+          </div>
+
+          <div class="gallery-card" onclick="openLightbox('https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=1200&q=85')">
+            <div class="gallery-card-inner">
+              <img
+                src="https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=800&q=80"
+                alt="Two hearts, one lifelong promise"
+                class="gallery-card-img"
+                loading="lazy"
+              />
+            </div>
+            <p class="gallery-card-caption">&ldquo;Two hearts, one lifelong promise&rdquo;</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         10. THE ARTISANS & CREATIVE PARTNERS
+    ═══════════════════════════════════════════════════════════════ -->
+    <section class="artisans-sec section-pad" id="artisans">
+      <div class="container-wide">
+        
+        <div class="text-center" style="margin-bottom: 3.5rem;">
+          <p class="countdown-tagline">With Gratitude</p>
+          <h2 class="story-heading">The Creative Team &amp; Artisans</h2>
+          <p class="story-subtitle">The exceptional talents bringing our wedding celebration to life</p>
+        </div>
+
+        <div class="artisans-grid">
+          
+          <!-- Band -->
+          <div class="artisan-card">
+            <div>
+              <div class="artisan-icon-wrap">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M9 18V5l12-2v13"></path>
+                  <circle cx="6" cy="18" r="3"></circle>
+                  <circle cx="18" cy="16" r="3"></circle>
+                </svg>
+              </div>
+              <p class="artisan-role">Live Music &amp; Entertainment</p>
+              <h3 class="artisan-name">Believer SL</h3>
+            </div>
+            <p class="artisan-desc">Bringing soulful melodies, vibrant energy &amp; live rhythm to our lakefront celebration.</p>
+          </div>
+
+          <!-- Photographer -->
+          <div class="artisan-card">
+            <div>
+              <div class="artisan-icon-wrap">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
+                  <circle cx="12" cy="13" r="4"></circle>
+                </svg>
+              </div>
+              <p class="artisan-role">Photography &amp; Cinematography</p>
+              <h3 class="artisan-name">Lovestruck Episodes</h3>
+            </div>
+            <p class="artisan-desc">Crafting timeless visual poetry, candid emotions &amp; capturing our lifelong memories.</p>
+          </div>
+
+          <!-- Groom Outfit -->
+          <div class="artisan-card">
+            <div>
+              <div class="artisan-icon-wrap">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                </svg>
+              </div>
+              <p class="artisan-role">Groom's Designer Attire</p>
+              <h3 class="artisan-name">A Wed Design by Ashok Duminda</h3>
+            </div>
+            <p class="artisan-desc">Bespoke ceremonial tailoring and handcrafted groom's wear designed with distinction.</p>
+          </div>
+
+          <!-- Gold Jewellery -->
+          <div class="artisan-card">
+            <div>
+              <div class="artisan-icon-wrap">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M6 3h12l4 6-10 13L2 9z"></path>
+                  <path d="M11 3 8 9l4 13 4-13-3-6"></path>
+                  <path d="M2 9h20"></path>
+                </svg>
+              </div>
+              <p class="artisan-role">Bridal &amp; Wedding Gold</p>
+              <h3 class="artisan-name">New Kala, Hettiweediya</h3>
+            </div>
+            <p class="artisan-desc">Heirloom wedding rings &amp; fine bridal gold artistry from Sea Street, Hettiweediya.</p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         11. RSVP SECTION (Editorial Form + 1-Click WhatsApp)
+    ═══════════════════════════════════════════════════════════════ -->
+    <section class="rsvp-sec section-pad" id="rsvp">
+      <div class="container-medium text-center">
+        
+        <p class="rsvp-tagline">R&eacute;pondez S'il Vous Pla&icirc;t</p>
+        <h2 class="rsvp-title">RSVP</h2>
+        <p class="rsvp-deadline-lead">
+          We can't wait to celebrate with you! Kindly respond by <strong>November 30, 2026</strong>.
+        </p>
+
+        <div class="rsvp-form-container">
+          <form id="rsvpForm" novalidate>
+            
+            <!-- Full Name -->
+            <div class="form-group">
+              <label for="rsvpName" class="form-label">Full Name *</label>
+              <input
+                type="text"
+                id="rsvpName"
+                class="form-input"
+                placeholder="Enter your name"
+                required
+              />
+            </div>
+
+            <!-- Attendance Selection -->
+            <div class="form-group">
+              <span class="form-label">Will you be attending? *</span>
+              <div class="attending-toggle-grid">
+                <button
+                  type="button"
+                  id="btnAttendYes"
+                  class="btn-attend-toggle active"
+                  data-status="attending"
+                >
+                  Joyfully Accepts
+                </button>
+                <button
+                  type="button"
+                  id="btnAttendNo"
+                  class="btn-attend-toggle"
+                  data-status="declining"
+                >
+                  Regretfully Declines
+                </button>
+              </div>
+            </div>
+
+            <!-- Number of Guests -->
+            <div class="form-group" id="guestsCountGroup">
+              <label for="rsvpGuests" class="form-label">Number of Guests</label>
+              <select id="rsvpGuests" class="select-guests">
+                <option value="1">1 Guest</option>
+                <option value="2">2 Guests</option>
+                <option value="3">3 Guests</option>
+                <option value="4">4 Guests</option>
+                <option value="5">5+ Guests (Family)</option>
+              </select>
+            </div>
+
+            <!-- Personal Note / Blessing -->
+            <div class="form-group">
+              <label for="rsvpNote" class="form-label">A Note or Blessing for the Couple</label>
+              <textarea
+                id="rsvpNote"
+                rows="3"
+                class="form-input"
+                style="resize:none;"
+                placeholder="Send your heartfelt wishes or dietary notes..."
+              ></textarea>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="btn-primary" style="width:100%; padding:1.2rem; margin-top:1rem;">
+              Confirm RSVP &amp; Send Blessing
+            </button>
+
+            <!-- Instant WhatsApp 1-Click RSVP Row -->
+            <div class="whatsapp-fast-row">
+              <p class="whatsapp-fast-title">Instant 1-Click WhatsApp RSVP</p>
+              <div class="whatsapp-buttons-wrap">
+                <a
+                  href="#"
+                  id="whatsappVihangaBtn"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn-whatsapp-rsvp"
+                >
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.634.074-1.921-.462-1.353-.563-2.222-1.942-2.29-2.033-.067-.091-.544-.725-.544-1.382 0-.658.344-.982.466-1.115.123-.133.268-.166.358-.166.09 0 .179.002.257.006.082.004.193-.031.302.23.112.268.384.938.417 1.006.034.068.057.147.011.238-.045.09-.068.147-.134.225-.067.078-.141.174-.201.233-.067.067-.137.139-.059.273.078.134.348.574.747.929.514.457.947.599 1.081.666.134.067.213.057.292-.034.08-.09.344-.4.434-.537.09-.137.179-.114.302-.068.123.045.782.369.917.436.134.068.224.102.257.16.034.057.034.331-.11.736z"/>
+                  </svg>
+                  RSVP to Vihanga
+                </a>
+                <a
+                  href="#"
+                  id="whatsappYashodyaBtn"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn-whatsapp-rsvp"
+                >
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.634.074-1.921-.462-1.353-.563-2.222-1.942-2.29-2.033-.067-.091-.544-.725-.544-1.382 0-.658.344-.982.466-1.115.123-.133.268-.166.358-.166.09 0 .179.002.257.006.082.004.193-.031.302.23.112.268.384.938.417 1.006.034.068.057.147.011.238-.045.09-.068.147-.134.225-.067.078-.141.174-.201.233-.067.067-.137.139-.059.273.078.134.348.574.747.929.514.457.947.599 1.081.666.134.067.213.057.292-.034.08-.09.344-.4.434-.537.09-.137.179-.114.302-.068.123.045.782.369.917.436.134.068.224.102.257.16.034.057.034.331-.11.736z"/>
+                  </svg>
+                  RSVP to Yashodya
+                </a>
+              </div>
+            </div>
+
+          </form>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         11. BLESSINGS WALL (Guestbook)
+    ═══════════════════════════════════════════════════════════════ -->
+    <section class="blessings-sec section-pad" id="blessings">
+      <div class="container-wide">
+        
+        <div class="text-center">
+          <p class="countdown-tagline">Heartfelt Wishes</p>
+          <h2 class="story-heading">Blessings Wall</h2>
+          <p class="story-subtitle">Messages of love and joy from our family and friends</p>
+        </div>
+
+        <div class="blessings-grid" id="blessingsGrid">
+          <!-- Populated by JavaScript -->
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       12. SITE FOOTER
+  ═══════════════════════════════════════════════════════════════ -->
+  <footer class="site-footer">
+    <div class="footer-top-grid">
+      
+      <div>
+        <p class="footer-col-title">Questions?</p>
+        <a href="tel:0779140659" class="footer-contact-link">Vihanga: 077 914 0659</a>
+        <a href="tel:0717172900" class="footer-contact-link">Yashodya: 071 717 2900</a>
+      </div>
+
+      <div>
+        <p class="footer-col-title">Quick Navigation</p>
+        <ul class="footer-links-list">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#countdown">Countdown</a></li>
+          <li><a href="#details">Ceremony &amp; Reception</a></li>
+          <li><a href="#story">Our Story</a></li>
+          <li><a href="#schedule">Schedule of Events</a></li>
+          <li><a href="#venue">Travel &amp; Venue</a></li>
+          <li><a href="#gallery">Photo Gallery</a></li>
+          <li><a href="#artisans">The Creative Team</a></li>
+          <li><a href="#rsvp">RSVP</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <p class="footer-col-title">Share the Love</p>
+        <p class="footer-hashtag">#YashodyaAndVihanga</p>
+        <p style="margin-top:0.6rem; color:var(--muted); font-size:0.9rem;">
+          December 14, 2026 &middot; Deandra Bolgoda
+        </p>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-couple-name">Yashodya &amp; Vihanga</p>
+      <p class="footer-made-with">Made with love in Bolgoda &mdash; 2026</p>
+    </div>
+  </footer>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       13. LIGHTBOX MODAL
+  ═══════════════════════════════════════════════════════════════ -->
+  <div class="lightbox-modal" id="lightboxModal" onclick="closeLightbox()">
+    <button type="button" class="lightbox-close" aria-label="Close Lightbox">&times;</button>
+    <img src="" alt="Enlarged gallery photo" class="lightbox-img" id="lightboxImg" />
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       14. FLOATING MUSIC TOGGLE PILL
+  ═══════════════════════════════════════════════════════════════ -->
+  <button type="button" class="floating-music-pill" id="musicToggleBtn" aria-label="Toggle Romantic Background Music">
+    <div class="music-wave-bars">
+      <div class="music-bar"></div>
+      <div class="music-bar"></div>
+      <div class="music-bar"></div>
+      <div class="music-bar"></div>
+    </div>
+    <span id="musicBtnLabel">Music: Off</span>
+  </button>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       15. TOAST NOTIFICATION
+  ═══════════════════════════════════════════════════════════════ -->
+  <div class="toast-notice" id="toastNotice"></div>
+
+  <!-- Scripts -->
+  <script src="js/config.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
