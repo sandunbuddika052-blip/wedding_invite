@@ -528,17 +528,17 @@
   }
 
   /* ──────────────────────────────────────────────────────────
-     7. CATHEDRAL GALLERY & LIGHTBOX MODAL
+     7. MASONRY GALLERY & LIGHTBOX MODAL
   ────────────────────────────────────────────────────────── */
   let currentGalleryIndex = 0;
   let galleryItems = [];
 
   function collectGalleryItems() {
-    const cards = document.querySelectorAll(".gallery-card");
+    const cards = document.querySelectorAll(".masonry-card, .gallery-card");
     galleryItems = Array.from(cards).map((card) => ({
       element: card,
       fullSrc: card.getAttribute("data-full") || card.querySelector("img")?.src || "",
-      caption: card.querySelector(".gallery-card-caption")?.textContent || "",
+      caption: "",
       category: card.getAttribute("data-category") || "all"
     }));
   }
@@ -556,7 +556,7 @@
     const item = galleryItems[currentGalleryIndex];
     if (modal && img && item) {
       img.src = item.fullSrc;
-      if (captionEl) captionEl.textContent = item.caption;
+      if (captionEl) captionEl.textContent = "";
       if (counterEl) counterEl.textContent = `${currentGalleryIndex + 1} / ${galleryItems.length}`;
       modal.classList.add("active");
       document.body.style.overflow = "hidden";
@@ -613,11 +613,11 @@
     buttons.forEach((b) => b.classList.remove("active"));
     if (btn) btn.classList.add("active");
 
-    const cards = document.querySelectorAll(".gallery-card");
+    const cards = document.querySelectorAll(".masonry-card");
     cards.forEach((card) => {
       const cardCat = card.getAttribute("data-category");
       if (cat === "all" || cardCat === cat) {
-        card.classList.remove("hidden");
+        card.style.display = "block";
         card.style.opacity = "0";
         card.style.transform = "translateY(12px)";
         setTimeout(() => {
@@ -626,7 +626,7 @@
           card.style.transform = "translateY(0)";
         }, 30);
       } else {
-        card.classList.add("hidden");
+        card.style.display = "none";
       }
     });
   };

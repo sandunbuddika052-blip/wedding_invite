@@ -97,26 +97,22 @@ const WEDDING_CONFIG = {
 
   /* ───── 🖼️ GALLERY ───── */
   gallery: [
-    {
-      url:      "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80",
-      caption:  "Together is our favorite place to be",
-      category: "Engagement"
-    },
-    {
-      url:      "https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=800&q=80",
-      caption:  "Hand in hand towards forever",
-      category: "Our Journey"
-    },
-    {
-      url:      "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=80",
-      caption:  "Every love story is beautiful, but ours is our favorite",
-      category: "Moments"
-    },
-    {
-      url:      "https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=800&q=80",
-      caption:  "Two hearts, one lifelong promise",
-      category: "Love"
-    }
+    { url: "assets/images/shoot/web/gallery-01.jpg", full: "assets/images/shoot/display/gallery-01.jpg", category: "midnight" },
+    { url: "assets/images/shoot/web/gallery-09.jpg", full: "assets/images/shoot/display/gallery-09.jpg", category: "sunlit" },
+    { url: "assets/images/shoot/web/gallery-02.jpg", full: "assets/images/shoot/display/gallery-02.jpg", category: "midnight" },
+    { url: "assets/images/shoot/web/gallery-10.jpg", full: "assets/images/shoot/display/gallery-10.jpg", category: "sunlit" },
+    { url: "assets/images/shoot/web/gallery-03.jpg", full: "assets/images/shoot/display/gallery-03.jpg", category: "midnight" },
+    { url: "assets/images/shoot/web/gallery-11.jpg", full: "assets/images/shoot/display/gallery-11.jpg", category: "sunlit" },
+    { url: "assets/images/shoot/web/gallery-04.jpg", full: "assets/images/shoot/display/gallery-04.jpg", category: "midnight" },
+    { url: "assets/images/shoot/web/gallery-12.jpg", full: "assets/images/shoot/display/gallery-12.jpg", category: "sunlit" },
+    { url: "assets/images/shoot/web/gallery-05.jpg", full: "assets/images/shoot/display/gallery-05.jpg", category: "midnight" },
+    { url: "assets/images/shoot/web/gallery-13.jpg", full: "assets/images/shoot/display/gallery-13.jpg", category: "sunlit" },
+    { url: "assets/images/shoot/web/gallery-06.jpg", full: "assets/images/shoot/display/gallery-06.jpg", category: "midnight" },
+    { url: "assets/images/shoot/web/gallery-14.jpg", full: "assets/images/shoot/display/gallery-14.jpg", category: "sunlit" },
+    { url: "assets/images/shoot/web/gallery-07.jpg", full: "assets/images/shoot/display/gallery-07.jpg", category: "midnight" },
+    { url: "assets/images/shoot/web/gallery-15.jpg", full: "assets/images/shoot/display/gallery-15.jpg", category: "sunlit" },
+    { url: "assets/images/shoot/web/gallery-08.jpg", full: "assets/images/shoot/display/gallery-08.jpg", category: "midnight" },
+    { url: "assets/images/shoot/web/gallery-16.jpg", full: "assets/images/shoot/display/gallery-16.jpg", category: "sunlit" }
   ],
 
   /* ───── 💌 INVITATION CARD ───── */

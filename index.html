@@ -199,7 +199,6 @@
       </div>
     </section>
 
-
     <div class="watermark-banner" style="margin-top: 40px;" aria-hidden="true">
       <p class="watermark-text">forever</p>
     </div>
@@ -381,48 +380,114 @@
     <section class="gallery-sec section-pad" id="gallery">
       <div class="container-wide">
 
-        <div class="text-center" style="margin-bottom: 4rem;">
+        <div class="text-center" style="margin-bottom: 2rem;">
           <p class="countdown-tagline">Captured Moments</p>
           <h2 class="story-heading">Photo Gallery</h2>
-          <p class="story-subtitle">Glimpses of our love story and memories</p>
         </div>
 
-        <div class="gallery-grid" id="galleryGrid">
-          <!-- Populated dynamically from config, with fallback cards -->
-          <div class="gallery-card" style="border-radius: 100px;"
-            onclick="openLightbox('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=85')">
-            <div class="gallery-card-inner" style="border-radius: 200px 200px 0px  0px;">
-              <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80"
-                alt="Together is our favorite place to be" class="gallery-card-img" loading="lazy" />
-            </div>
-            <p class="gallery-card-caption">&ldquo;Together is our favorite place to be&rdquo;</p>
-          </div>
+        <!-- Filter Tabs -->
+        <div class="gallery-filter-tabs">
+          <button type="button" class="gallery-filter-btn active" onclick="filterGallery('all', this)">All</button>
+          <button type="button" class="gallery-filter-btn" onclick="filterGallery('midnight', this)">Midnight Drive</button>
+          <button type="button" class="gallery-filter-btn" onclick="filterGallery('sunlit', this)">Sunlit Romance</button>
+        </div>
 
-          <div class="gallery-card"
-            onclick="openLightbox('https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=1200&q=85')">
-            <div class="gallery-card-inner">
-              <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=800&q=80"
-                alt="Hand in hand towards forever" class="gallery-card-img" loading="lazy" />
+        <div class="masonry-grid" id="galleryGrid">
+          <div class="masonry-card" data-category="midnight" data-full="assets/images/shoot/display/gallery-01.jpg" onclick="openLightboxAtIndex(0)">
+            <div class="masonry-card-inner">
+              <img src="assets/images/shoot/web/gallery-01.jpg" alt="Wedding photo" class="masonry-img" loading="lazy" />
+              <div class="masonry-card-overlay"></div>
             </div>
-            <p class="gallery-card-caption">&ldquo;Hand in hand towards forever&rdquo;</p>
           </div>
-
-          <div class="gallery-card"
-            onclick="openLightbox('https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1200&q=85')">
-            <div class="gallery-card-inner">
-              <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=80"
-                alt="Every love story is beautiful" class="gallery-card-img" loading="lazy" />
+          <div class="masonry-card" data-category="sunlit" data-full="assets/images/shoot/display/gallery-09.jpg" onclick="openLightboxAtIndex(1)">
+            <div class="masonry-card-inner">
+              <img src="assets/images/shoot/web/gallery-09.jpg" alt="Wedding photo" class="masonry-img" loading="lazy" />
+              <div class="masonry-card-overlay"></div>
             </div>
-            <p class="gallery-card-caption">&ldquo;Every love story is beautiful&rdquo;</p>
           </div>
-
-          <div class="gallery-card"
-            onclick="openLightbox('https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=1200&q=85')">
-            <div class="gallery-card-inner">
-              <img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=800&q=80"
-                alt="Two hearts, one lifelong promise" class="gallery-card-img" loading="lazy" />
+          <div class="masonry-card" data-category="midnight" data-full="assets/images/shoot/display/gallery-02.jpg" onclick="openLightboxAtIndex(2)">
+            <div class="masonry-card-inner">
+              <img src="assets/images/shoot/web/gallery-02.jpg" alt="Wedding photo" class="masonry-img" loading="lazy" />
+              <div class="masonry-card-overlay"></div>
             </div>
-            <p class="gallery-card-caption">&ldquo;Two hearts, one lifelong promise&rdquo;</p>
+          </div>
+          <div class="masonry-card" data-category="sunlit" data-full="assets/images/shoot/display/gallery-10.jpg" onclick="openLightboxAtIndex(3)">
+            <div class="masonry-card-inner">
+              <img src="assets/images/shoot/web/gallery-10.jpg" alt="Wedding photo" class="masonry-img" loading="lazy" />
+              <div class="masonry-card-overlay"></div>
+            </div>
+          </div>
+          <div class="masonry-card" data-category="midnight" data-full="assets/images/shoot/display/gallery-03.jpg" onclick="openLightboxAtIndex(4)">
+            <div class="masonry-card-inner">
+              <img src="assets/images/shoot/web/gallery-03.jpg" alt="Wedding photo" class="masonry-img" loading="lazy" />
+              <div class="masonry-card-overlay"></div>
+            </div>
+          </div>
+          <div class="masonry-card" data-category="sunlit" data-full="assets/images/shoot/display/gallery-11.jpg" onclick="openLightboxAtIndex(5)">
+            <div class="masonry-card-inner">
+              <img src="assets/images/shoot/web/gallery-11.jpg" alt="Wedding photo" class="masonry-img" loading="lazy" />
+              <div class="masonry-card-overlay"></div>
+            </div>
+          </div>
+          <div class="masonry-card" data-category="midnight" data-full="assets/images/shoot/display/gallery-04.jpg" onclick="openLightboxAtIndex(6)">
+            <div class="masonry-card-inner">
+              <img src="assets/images/shoot/web/gallery-04.jpg" alt="Wedding photo" class="masonry-img" loading="lazy" />
+              <div class="masonry-card-overlay"></div>
+            </div>
+          </div>
+          <div class="masonry-card" data-category="sunlit" data-full="assets/images/shoot/display/gallery-12.jpg" onclick="openLightboxAtIndex(7)">
+            <div class="masonry-card-inner">
+              <img src="assets/images/shoot/web/gallery-12.jpg" alt="Wedding photo" class="masonry-img" loading="lazy" />
+              <div class="masonry-card-overlay"></div>
+            </div>
+          </div>
+          <div class="masonry-card" data-category="midnight" data-full="assets/images/shoot/display/gallery-05.jpg" onclick="openLightboxAtIndex(8)">
+            <div class="masonry-card-inner">
+              <img src="assets/images/shoot/web/gallery-05.jpg" alt="Wedding photo" class="masonry-img" loading="lazy" />
+              <div class="masonry-card-overlay"></div>
+            </div>
+          </div>
+          <div class="masonry-card" data-category="sunlit" data-full="assets/images/shoot/display/gallery-13.jpg" onclick="openLightboxAtIndex(9)">
+            <div class="masonry-card-inner">
+              <img src="assets/images/shoot/web/gallery-13.jpg" alt="Wedding photo" class="masonry-img" loading="lazy" />
+              <div class="masonry-card-overlay"></div>
+            </div>
+          </div>
+          <div class="masonry-card" data-category="midnight" data-full="assets/images/shoot/display/gallery-06.jpg" onclick="openLightboxAtIndex(10)">
+            <div class="masonry-card-inner">
+              <img src="assets/images/shoot/web/gallery-06.jpg" alt="Wedding photo" class="masonry-img" loading="lazy" />
+              <div class="masonry-card-overlay"></div>
+            </div>
+          </div>
+          <div class="masonry-card" data-category="sunlit" data-full="assets/images/shoot/display/gallery-14.jpg" onclick="openLightboxAtIndex(11)">
+            <div class="masonry-card-inner">
+              <img src="assets/images/shoot/web/gallery-14.jpg" alt="Wedding photo" class="masonry-img" loading="lazy" />
+              <div class="masonry-card-overlay"></div>
+            </div>
+          </div>
+          <div class="masonry-card" data-category="midnight" data-full="assets/images/shoot/display/gallery-07.jpg" onclick="openLightboxAtIndex(12)">
+            <div class="masonry-card-inner">
+              <img src="assets/images/shoot/web/gallery-07.jpg" alt="Wedding photo" class="masonry-img" loading="lazy" />
+              <div class="masonry-card-overlay"></div>
+            </div>
+          </div>
+          <div class="masonry-card" data-category="sunlit" data-full="assets/images/shoot/display/gallery-15.jpg" onclick="openLightboxAtIndex(13)">
+            <div class="masonry-card-inner">
+              <img src="assets/images/shoot/web/gallery-15.jpg" alt="Wedding photo" class="masonry-img" loading="lazy" />
+              <div class="masonry-card-overlay"></div>
+            </div>
+          </div>
+          <div class="masonry-card" data-category="midnight" data-full="assets/images/shoot/display/gallery-08.jpg" onclick="openLightboxAtIndex(14)">
+            <div class="masonry-card-inner">
+              <img src="assets/images/shoot/web/gallery-08.jpg" alt="Wedding photo" class="masonry-img" loading="lazy" />
+              <div class="masonry-card-overlay"></div>
+            </div>
+          </div>
+          <div class="masonry-card" data-category="sunlit" data-full="assets/images/shoot/display/gallery-16.jpg" onclick="openLightboxAtIndex(15)">
+            <div class="masonry-card-inner">
+              <img src="assets/images/shoot/web/gallery-16.jpg" alt="Wedding photo" class="masonry-img" loading="lazy" />
+              <div class="masonry-card-overlay"></div>
+            </div>
           </div>
         </div>
 
@@ -656,9 +721,17 @@
     </div>
   </footer>
 
-  <div class="lightbox-modal" id="lightboxModal" onclick="closeLightbox()">
-    <button type="button" class="lightbox-close" aria-label="Close Lightbox">&times;</button>
-    <img src="" alt="Enlarged gallery photo" class="lightbox-img" id="lightboxImg" />
+  <div class="lightbox-modal" id="lightboxModal" onclick="handleLightboxClick(event)">
+    <button type="button" class="lightbox-close" onclick="closeLightbox()" aria-label="Close Lightbox">&times;</button>
+    <button type="button" class="lightbox-prev" onclick="prevLightbox(event)" aria-label="Previous Photo">&#10094;</button>
+    <div class="lightbox-content" onclick="event.stopPropagation()">
+      <img src="" alt="Enlarged gallery photo" class="lightbox-img" id="lightboxImg" />
+      <div class="lightbox-info">
+        <p class="lightbox-caption" id="lightboxCaption"></p>
+        <span class="lightbox-counter" id="lightboxCounter"></span>
+      </div>
+    </div>
+    <button type="button" class="lightbox-next" onclick="nextLightbox(event)" aria-label="Next Photo">&#10095;</button>
   </div>
 
   <button type="button" class="floating-music-pill" id="musicToggleBtn" aria-label="Toggle Romantic Background Music">
