@@ -316,7 +316,7 @@
 
       btn.addEventListener("click", () => {
         const title = "Wedding of Yashodya & Vihanga";
-        const desc = "We warmly invite you to celebrate the wedding of Yashodya & Vihanga at Deandra Bolgoda. Auspicious Poruwa Ceremony at 10:50 AM.";
+        const desc = "We warmly invite you to celebrate the wedding of Yashodya & Vihanga at Deandra Bolgoda. Auspicious Poruwa Ceremony at 10:40 AM.";
         const loc = "Deandra Bolgoda, Bolgoda Lake, Sri Lanka";
         const start = "20261214T043000Z"; // 10:00 AM UTC+5:30 in UTC
         const end = "20261214T110000Z";   // 4:30 PM UTC+5:30 in UTC
@@ -555,9 +555,19 @@
 
     const item = galleryItems[currentGalleryIndex];
     if (modal && img && item) {
-      img.src = item.fullSrc;
+      img.style.opacity = "0.3";
+      img.style.transform = "scale(0.96)";
+      
+      const newImg = new Image();
+      newImg.onload = () => {
+        img.src = item.fullSrc;
+        img.style.opacity = "1";
+        img.style.transform = "scale(1)";
+      };
+      newImg.src = item.fullSrc;
+
       if (captionEl) captionEl.textContent = "";
-      if (counterEl) counterEl.textContent = `${currentGalleryIndex + 1} / ${galleryItems.length}`;
+      if (counterEl) counterEl.textContent = `${currentGalleryIndex + 1} of ${galleryItems.length}`;
       modal.classList.add("active");
       document.body.style.overflow = "hidden";
     }

@@ -38,10 +38,10 @@ const WEDDING_CONFIG = {
     dayOfWeek:        "Monday",
     dateFormatted:    "14th December 2026",
     startTime:        "10:00 AM",
-    poruwaTime:       "10:50 AM",
+    poruwaTime:       "10:40 AM",
     rsvpDeadline:     "30th November 2026",
     calendarSummary:  "Wedding of Yashodya & Vihanga",
-    calendarDescription: "We warmly invite you to celebrate the wedding of Yashodya & Vihanga at Deandra Bolgoda. Poruwa ceremony at 10:50 AM.",
+    calendarDescription: "We warmly invite you to celebrate the wedding of Yashodya & Vihanga at Deandra Bolgoda. Poruwa ceremony at 10:40 AM.",
   },
 
   /* ───── 📍 VENUE ───── */
@@ -64,7 +64,7 @@ const WEDDING_CONFIG = {
       icon:  "fa-glass-cheers"
     },
     {
-      time:  "10:50 AM",
+      time:  "10:40 AM",
       title: "Traditional Poruwa Ceremony",
       desc:  "The sacred traditional Sri Lankan rituals and tying of the wedding knot at the auspicious time.",
       icon:  "fa-ring"
@@ -135,6 +135,11 @@ const WEDDING_CONFIG = {
       role: "Photography & Cinematography",
       name: "Lovestruck Episodes"
     },
+    bridalDressing: {
+      role: "Bridal Dressing",
+      name: "Salon Thish Bridal & Beauty",
+      desc: "Creating radiant bridal glow, elegant drapes & timeless beauty for our special day."
+    },
     groomOutfit: {
       role: "Groom's Designer Attire",
       name: "A Wed Design by Ashok Duminda"
@@ -142,6 +147,11 @@ const WEDDING_CONFIG = {
     jewellery: {
       role: "Bridal & Wedding Gold Jewellery",
       name: "New Kala, Hettiweediya"
+    },
+    cake: {
+      role: "Wedding Cake",
+      name: "Lanka Chandani Cake Creations",
+      desc: "Handcrafted wedding cake structures & sweet delights for our celebration."
     }
   },
 
