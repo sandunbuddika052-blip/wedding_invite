@@ -38,7 +38,7 @@
 
       // Preload the open envelope image into memory for instant reveal
       const preloadImg = new Image();
-      preloadImg.src = "assets/images/envelope/envelope%20open.png";
+      preloadImg.src = "assets/images/envelope/envelope%20open.png?v=2";
 
       // Populate guest name in intro
       const params = new URLSearchParams(window.location.search);
