@@ -99,13 +99,26 @@ for by in range(TOP - B, BOT + B, STEP):
         wsum[ty0:ty1, tx0:tx1] += w * w
 tex /= np.sqrt(np.maximum(wsum, 1e-4))
 
+# match the fitted lighting to the real pocket just below its edge, column
+# by column, so the rebuilt paper meets the photo without a brightness step
+probe = np.clip((pocket_y[0] + 34).astype(int), 0, H - 1)
+cols = np.arange(W)
+ratio = blur[probe, cols] / np.maximum(light[probe, cols], 1)
+ok = ((cols > X0 + 8) & (cols < X1 - 9)) & ~((cols > 585) & (cols < 835))
+for c in range(3):
+    ratio[:, c] = np.interp(cols, cols[ok], ratio[ok, c])
+    ratio[:, c] = np.convolve(np.pad(ratio[:, c], 25, mode="edge"), np.ones(51) / 51, "valid")
+fall = np.clip(1 - ((pocket_y + 34) - yy) / 160, 0, 1)[:, :, None]
+light = light * (1 + (ratio[None, :, :] - 1) * fall)
+
 paper = light + tex
 
 # ── composite ──────────────────────────────────────────────────────────
 out = paper.copy()
 
-# 1. bottom pocket straight from the photo (soft 2px seam)
-keep = np.clip((yy - (pocket_y - 4)) / 2.0, 0, 1)[:, :, None]
+# 1. bottom pocket straight from the photo, starting just below its edge so
+#    the open envelope's pocket fold doesn't show on the closed one
+keep = np.clip((yy - (pocket_y + 10)) / 16.0, 0, 1)[:, :, None]
 out = out * (1 - keep) + RGB * keep
 
 # 2. top flap: soft shadow onto what's below, then the flap itself
