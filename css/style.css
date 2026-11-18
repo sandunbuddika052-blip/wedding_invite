@@ -2187,6 +2187,16 @@ body.locked {
   pointer-events: none;
 }
 
+/* Children like the revealed envelope set pointer-events: auto, which would
+   override the parent and keep catching clicks on the page underneath */
+.intro-screen.exit * {
+  pointer-events: none !important;
+}
+
+.intro-screen.gone {
+  display: none;
+}
+
 .intro-canvas {
   position: absolute;
   inset: 0;

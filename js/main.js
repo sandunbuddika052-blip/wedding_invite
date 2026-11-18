@@ -166,6 +166,7 @@
 
           setTimeout(() => {
             if (animId) cancelAnimationFrame(animId);
+            screen.classList.add("gone");
           }, 1200);
         }, 3000);
       }
