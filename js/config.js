@@ -104,21 +104,24 @@ const WEDDING_CONFIG = {
   /* ───── 🖼️ GALLERY ───── */
   gallery: [
     { url: "assets/images/shoot/web/gallery-01.jpg", full: "assets/images/shoot/display/gallery-01.jpg", category: "midnight" },
-    { url: "assets/images/shoot/web/gallery-09.jpg", full: "assets/images/shoot/display/gallery-09.jpg", category: "sunlit" },
-    { url: "assets/images/shoot/web/gallery-02.jpg", full: "assets/images/shoot/display/gallery-02.jpg", category: "midnight" },
-    { url: "assets/images/shoot/web/gallery-10.jpg", full: "assets/images/shoot/display/gallery-10.jpg", category: "sunlit" },
+    { url: "assets/images/shoot/web/gallery-02.jpg", full: "assets/images/shoot/display/gallery-02.jpg", category: "sunlit" },
     { url: "assets/images/shoot/web/gallery-03.jpg", full: "assets/images/shoot/display/gallery-03.jpg", category: "midnight" },
-    { url: "assets/images/shoot/web/gallery-11.jpg", full: "assets/images/shoot/display/gallery-11.jpg", category: "sunlit" },
-    { url: "assets/images/shoot/web/gallery-04.jpg", full: "assets/images/shoot/display/gallery-04.jpg", category: "midnight" },
-    { url: "assets/images/shoot/web/gallery-12.jpg", full: "assets/images/shoot/display/gallery-12.jpg", category: "sunlit" },
+    { url: "assets/images/shoot/web/gallery-04.jpg", full: "assets/images/shoot/display/gallery-04.jpg", category: "sunlit" },
     { url: "assets/images/shoot/web/gallery-05.jpg", full: "assets/images/shoot/display/gallery-05.jpg", category: "midnight" },
-    { url: "assets/images/shoot/web/gallery-13.jpg", full: "assets/images/shoot/display/gallery-13.jpg", category: "sunlit" },
-    { url: "assets/images/shoot/web/gallery-06.jpg", full: "assets/images/shoot/display/gallery-06.jpg", category: "midnight" },
-    { url: "assets/images/shoot/web/gallery-14.jpg", full: "assets/images/shoot/display/gallery-14.jpg", category: "sunlit" },
+    { url: "assets/images/shoot/web/gallery-06.jpg", full: "assets/images/shoot/display/gallery-06.jpg", category: "sunlit" },
     { url: "assets/images/shoot/web/gallery-07.jpg", full: "assets/images/shoot/display/gallery-07.jpg", category: "midnight" },
-    { url: "assets/images/shoot/web/gallery-15.jpg", full: "assets/images/shoot/display/gallery-15.jpg", category: "sunlit" },
-    { url: "assets/images/shoot/web/gallery-08.jpg", full: "assets/images/shoot/display/gallery-08.jpg", category: "midnight" },
-    { url: "assets/images/shoot/web/gallery-16.jpg", full: "assets/images/shoot/display/gallery-16.jpg", category: "sunlit" }
+    { url: "assets/images/shoot/web/gallery-08.jpg", full: "assets/images/shoot/display/gallery-08.jpg", category: "sunlit" },
+    { url: "assets/images/shoot/web/gallery-09.jpg", full: "assets/images/shoot/display/gallery-09.jpg", category: "midnight" },
+    { url: "assets/images/shoot/web/gallery-10.jpg", full: "assets/images/shoot/display/gallery-10.jpg", category: "sunlit" },
+    { url: "assets/images/shoot/web/gallery-11.jpg", full: "assets/images/shoot/display/gallery-11.jpg", category: "midnight" },
+    { url: "assets/images/shoot/web/gallery-12.jpg", full: "assets/images/shoot/display/gallery-12.jpg", category: "sunlit" },
+    { url: "assets/images/shoot/web/gallery-13.jpg", full: "assets/images/shoot/display/gallery-13.jpg", category: "midnight" },
+    { url: "assets/images/shoot/web/gallery-14.jpg", full: "assets/images/shoot/display/gallery-14.jpg", category: "sunlit" },
+    { url: "assets/images/shoot/web/gallery-15.jpg", full: "assets/images/shoot/display/gallery-15.jpg", category: "midnight" },
+    { url: "assets/images/shoot/web/gallery-16.jpg", full: "assets/images/shoot/display/gallery-16.jpg", category: "midnight" },
+    { url: "assets/images/shoot/web/gallery-17.jpg", full: "assets/images/shoot/display/gallery-17.jpg", category: "midnight" },
+    { url: "assets/images/shoot/web/gallery-18.jpg", full: "assets/images/shoot/display/gallery-18.jpg", category: "midnight" },
+    { url: "assets/images/shoot/web/gallery-19.jpg", full: "assets/images/shoot/display/gallery-19.jpg", category: "midnight" }
   ],
 
   /* ───── 💌 INVITATION CARD ───── */

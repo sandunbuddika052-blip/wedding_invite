@@ -377,7 +377,8 @@ button, input, textarea, select {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 38%;
+  /* the couple walks in the lower left-middle of this tall photo */
+  object-position: 35% 72%;
   transform: scale(1.05);
   animation: heroSubtleZoom 18s ease-in-out infinite alternate;
 }
