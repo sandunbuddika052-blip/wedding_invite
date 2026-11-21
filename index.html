@@ -30,7 +30,7 @@
     rel="stylesheet" />
 
   <!-- Stylesheet -->
-  <link rel="stylesheet" href="css/style.css?v=13" />
+  <link rel="stylesheet" href="css/style.css?v=15" />
 </head>
 
 <body class="locked">
@@ -119,8 +119,12 @@
 
     <section class="hero-sec" id="home">
 
-      <img src="assets/images/hero.jpg?v=2"
-        alt="Yashodya and Vihanga celebrating love" class="hero-bg-img" />
+      <picture>
+        <!-- Wide screens: a crop with the couple centred under the names -->
+        <source media="(min-aspect-ratio: 1/1)" srcset="assets/images/hero-wide.jpg?v=1" />
+        <img src="assets/images/hero.jpg?v=3"
+          alt="Yashodya and Vihanga celebrating love" class="hero-bg-img" />
+      </picture>
       <div class="hero-overlay"></div>
 
       <div class="hero-content">

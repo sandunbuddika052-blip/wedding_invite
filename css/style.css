@@ -377,10 +377,18 @@ button, input, textarea, select {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  /* the couple walks in the lower left-middle of this tall photo */
-  object-position: 35% 72%;
+  /* hero.jpg and hero-wide.jpg are both cropped with the couple centred */
+  object-position: center 70%;
   transform: scale(1.05);
+  transform-origin: center 30%;
   animation: heroSubtleZoom 18s ease-in-out infinite alternate;
+}
+
+/* Wide screens get hero-wide.jpg, already cropped with the couple centred */
+@media (min-aspect-ratio: 1/1) {
+  .hero-bg-img {
+    object-position: center 20%;
+  }
 }
 
 @keyframes heroSubtleZoom {
