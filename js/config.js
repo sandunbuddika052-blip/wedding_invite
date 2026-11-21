@@ -47,11 +47,11 @@ const WEDDING_CONFIG = {
   /* ───── 📍 VENUE ───── */
   venue: {
     name:               "Deandra Bolgoda",
-    subName:            "Bolgoda Lake, Sri Lanka",
-    fullAddress:        "Deandra Bolgoda, Bolgoda Lake, Piliyandala / Moratuwa, Sri Lanka",
-    googleMapsSearchUrl:"https://www.google.com/maps/search/?api=1&query=Deandra+Bolgoda",
-    googleMapsEmbedUrl: "https://maps.google.com/maps?q=Deandra%20Bolgoda&t=&z=15&ie=UTF8&iwloc=&output=embed",
-    dressCode:          "Formal / Traditional Sri Lankan / Elegant Pastel & Gold",
+    subName:            "Piliyandala, Sri Lanka",
+    fullAddress:        "Deandra Hotel Bolgoda, Piliyandala, Sri Lanka",
+    googleMapsSearchUrl:"https://maps.app.goo.gl/Rv6A9ut9ppDGchgs6",
+    googleMapsEmbedUrl: "https://maps.google.com/maps?q=6.8080444,79.9072937&t=&z=16&ie=UTF8&iwloc=&output=embed",
+    dressCode:          "Western Formal or Traditional Sri Lankan in Your Most Elegant Attire",
     parkingInfo:        "Ample on-site parking available with valet assistance."
   },
 
@@ -60,7 +60,7 @@ const WEDDING_CONFIG = {
     {
       time:  "10:00 AM",
       title: "Welcome & Guest Arrival",
-      desc:  "Gathering of family and friends with welcome refreshments by scenic Bolgoda Lake.",
+      desc:  "Gathering of family and friends with welcome refreshments at Deandra Hotel Bolgoda.",
       icon:  "fa-glass-cheers"
     },
     {
@@ -77,6 +77,12 @@ const WEDDING_CONFIG = {
     },
     {
       time:  "12:30 PM",
+      title: "Bar Opening",
+      desc:  "The bar opens with drinks to toast the newlyweds and celebrate with family and friends.",
+      icon:  "fa-martini-glass"
+    },
+    {
+      time:  "12:45 PM",
       title: "Wedding Lunch & Banquet",
       desc:  "A delectable feast and joyous celebration with live music.",
       icon:  "fa-utensils"
@@ -121,7 +127,7 @@ const WEDDING_CONFIG = {
   /* ───── 🎵 BACKGROUND MUSIC ───── */
   music: {
     enabled:          true,
-    audioSrc:         "assets/audio/wedding-bgm.mp3",
+    audioSrc:         "assets/audio/wedding-bgm.m4a",
     trackTitle:       "Romantic Wedding Melody"
   },
 

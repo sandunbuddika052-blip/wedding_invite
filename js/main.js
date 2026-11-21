@@ -64,15 +64,17 @@
         window.addEventListener("resize", resize);
         resize();
 
-        // Generate warm gold and copper particles
-        for (let i = 0; i < 40; i++) {
+        // Generate warm gold and copper particles, scaled to the screen:
+        // ~70 on a phone, ~90 on a laptop, up to 140 on a large monitor
+        const particleCount = Math.round(Math.min(140, Math.max(70, (canvas.width * canvas.height) / 9000)));
+        for (let i = 0; i < particleCount; i++) {
           particles.push({
             x: Math.random() * canvas.width,
             y: Math.random() * canvas.height,
-            r: Math.random() * 2 + 0.6,
+            r: Math.random() * 2 + 0.7,
             vx: (Math.random() - 0.5) * 0.3,
             vy: -Math.random() * 0.4 - 0.15,
-            alpha: Math.random() * 0.5 + 0.15,
+            alpha: Math.random() * 0.5 + 0.22,
             gold: Math.random() > 0.4 ? "rgba(163, 82, 50," : "rgba(205, 145, 90,"
           });
         }
@@ -318,7 +320,7 @@
       btn.addEventListener("click", () => {
         const title = "Wedding of Yashodya & Vihanga";
         const desc = "We warmly invite you to celebrate the wedding of Yashodya & Vihanga at Deandra Bolgoda. Auspicious Poruwa Ceremony at 10:40 AM.";
-        const loc = "Deandra Bolgoda, Bolgoda Lake, Sri Lanka";
+        const loc = "Deandra Hotel Bolgoda, Piliyandala, Sri Lanka";
         const start = "20261214T043000Z"; // 10:00 AM UTC+5:30 in UTC
         const end = "20261214T110000Z";   // 4:30 PM UTC+5:30 in UTC
 
@@ -361,11 +363,9 @@
     try {
       const form = $("rsvpForm");
       const nameInput = $("rsvpName");
-      const guestsSelect = $("rsvpGuests");
       const noteInput = $("rsvpNote");
       const btnYes = $("btnAttendYes");
       const btnNo = $("btnAttendNo");
-      const countGroup = $("guestsCountGroup");
       const waVihanga = $("whatsappVihangaBtn");
       const waYashodya = $("whatsappYashodyaBtn");
 
@@ -376,7 +376,6 @@
           attendanceStatus = "attending";
           btnYes.classList.add("active");
           btnNo.classList.remove("active");
-          if (countGroup) countGroup.style.display = "block";
           updateWhatsAppLinks();
         });
 
@@ -384,14 +383,12 @@
           attendanceStatus = "declining";
           btnNo.classList.add("active");
           btnYes.classList.remove("active");
-          if (countGroup) countGroup.style.display = "none";
           updateWhatsAppLinks();
         });
       }
 
       function buildWhatsAppMessage() {
         const name = (nameInput && nameInput.value.trim()) || "Guest";
-        const guests = (guestsSelect && guestsSelect.value) || "1";
         const note = (noteInput && noteInput.value.trim()) || "";
 
         let msg = "";
@@ -399,8 +396,7 @@
           msg = `*Wedding RSVP — Yashodya & Vihanga*\n\n` +
                 `Hello! I am delighted to confirm my attendance.\n\n` +
                 `• *Guest Name:* ${name}\n` +
-                `• *Attending:* Joyfully Accepts (Yes)\n` +
-                `• *Number of Guests:* ${guests}\n`;
+                `• *Attending:* Joyfully Accepts (Yes)\n`;
         } else {
           msg = `*Wedding RSVP — Yashodya & Vihanga*\n\n` +
                 `Hello! Regretfully I will not be able to attend, but sending my warmest congratulations & blessings!\n\n` +
@@ -426,38 +422,38 @@
       }
 
       if (nameInput) nameInput.addEventListener("input", updateWhatsAppLinks);
-      if (guestsSelect) guestsSelect.addEventListener("change", updateWhatsAppLinks);
       if (noteInput) noteInput.addEventListener("input", updateWhatsAppLinks);
 
       updateWhatsAppLinks();
 
-      // Form submission
-      if (form) {
-        form.addEventListener("submit", (e) => {
+      // Each send button checks the name, adds any note to the Blessings
+      // Wall (once), then lets the link open WhatsApp
+      let savedBlessing = "";
+      function handleSend(e) {
+        const name = (nameInput && nameInput.value.trim()) || "";
+        if (!name) {
           e.preventDefault();
-          const name = (nameInput && nameInput.value.trim()) || "";
+          showToast("Please enter your name");
+          if (nameInput) nameInput.focus();
+          return;
+        }
 
-          if (!name) {
-            showToast("Please enter your name");
-            nameInput.focus();
-            return;
-          }
+        const note = (noteInput && noteInput.value.trim()) || "";
+        if (note && `${name}|${note}` !== savedBlessing) {
+          saveBlessing(name, note);
+          savedBlessing = `${name}|${note}`;
+        }
 
-          const note = (noteInput && noteInput.value.trim()) || "";
-          if (note) {
-            saveBlessing(name, note);
-          }
+        updateWhatsAppLinks();
+        showToast("Opening WhatsApp...");
+      }
 
-          updateWhatsAppLinks();
+      if (waVihanga) waVihanga.addEventListener("click", handleSend);
+      if (waYashodya) waYashodya.addEventListener("click", handleSend);
 
-          // Offer WhatsApp direct send
-          showToast("RSVP Recorded! Opening WhatsApp...");
-          setTimeout(() => {
-            if (waVihanga && waVihanga.href) {
-              window.open(waVihanga.href, "_blank");
-            }
-          }, 800);
-        });
+      // Pressing Enter in the name field shouldn't reload the page
+      if (form) {
+        form.addEventListener("submit", (e) => e.preventDefault());
       }
     } catch (e) {
       console.warn("RSVP setup:", e);
@@ -469,27 +465,48 @@
   ────────────────────────────────────────────────────────── */
   const DEFAULT_BLESSINGS = [
     {
-      name: "Kasun & Chamari",
-      text: "Wishing you both a lifetime of unending love, joy, and blessed moments on this beautiful new journey together!"
+      name: "Your loving Nangi, Sawani",
+      text: "Congratulations to my wonderful Ayya and Akka! May your new journey together be blessed with boundless joy, understanding, and a love that grows stronger each day. So happy for you both!"
     },
     {
-      name: "Uncle Nihal & Family",
-      text: "Congratulations to our dear Yashodya and Vihanga! May your marriage be filled with harmony, prosperity, and joy."
+      name: "Akka & Tharusha Ayya",
+      text: "To the dearest nangi and malli — may your home be filled with happiness, your hearts with peace, and your life with endless love. With all our love!"
     },
     {
-      name: "Dinuka & Friends",
-      text: "So excited to celebrate your big day at Bolgoda Lake! You two make the most wonderful couple. Cheers to forever!"
+      name: "Uncle Wijerathna and Family",
+      text: "Congratulations to our dearest Yashodya and Vihanga! May your life together be filled with endless love, happiness, and countless blessings. Wishing you both a beautiful journey together!"
+    },
+    {
+      name: "Madaya and thunder cats",
+      text: "To our dearest Vihanga and Nethmi — wishing you both a lifetime of love, happiness, and beautiful memories together. May your journey ahead be filled with endless blessings! ❤️💍"
     }
+  ];
+
+  // Only the guest's own blessings live in their browser; the defaults above
+  // always come from this file, so editing them reaches everyone
+  const OWN_BLESSINGS_KEY = "wedding_blessings_yv_own";
+  const OLD_DEFAULT_TEXTS = [
+    "Wishing you both a lifetime of unending love, joy, and blessed moments on this beautiful new journey together!",
+    "Congratulations to our dear Yashodya and Vihanga! May your marriage be filled with harmony, prosperity, and joy.",
+    "So excited to celebrate your big day at Bolgoda Lake! You two make the most wonderful couple. Cheers to forever!"
   ];
 
   function getStoredBlessings() {
     try {
-      const stored = localStorage.getItem("wedding_blessings_yv");
-      if (stored) {
-        return JSON.parse(stored);
+      const own = localStorage.getItem(OWN_BLESSINGS_KEY);
+      if (own) return JSON.parse(own);
+
+      // Older visits stored the full list, old defaults included: keep only
+      // what the guest wrote themselves
+      const legacy = localStorage.getItem("wedding_blessings_yv");
+      if (legacy) {
+        const mine = JSON.parse(legacy).filter((b) => !OLD_DEFAULT_TEXTS.includes(b.text));
+        localStorage.setItem(OWN_BLESSINGS_KEY, JSON.stringify(mine));
+        localStorage.removeItem("wedding_blessings_yv");
+        return mine;
       }
     } catch (e) {}
-    return DEFAULT_BLESSINGS;
+    return [];
   }
 
   function renderBlessings() {
@@ -497,7 +514,7 @@
       const grid = $("blessingsGrid");
       if (!grid) return;
 
-      const list = getStoredBlessings();
+      const list = [...getStoredBlessings(), ...DEFAULT_BLESSINGS];
       grid.innerHTML = list.map((b) => `
         <div class="blessing-card">
           <p class="blessing-card-text">&ldquo;${escapeHtml(b.text)}&rdquo;</p>
@@ -513,7 +530,7 @@
     try {
       const list = getStoredBlessings();
       list.unshift({ name, text });
-      localStorage.setItem("wedding_blessings_yv", JSON.stringify(list));
+      localStorage.setItem(OWN_BLESSINGS_KEY, JSON.stringify(list));
       renderBlessings();
     } catch (e) {
       console.warn("Save blessing:", e);
@@ -706,7 +723,7 @@
       let synthInterval = null;
 
       // Try loading audio if available
-      audio = new Audio("assets/audio/wedding-bgm.mp3");
+      audio = new Audio("assets/audio/wedding-bgm.m4a?v=1");
       audio.loop = true;
       audio.preload = "none";
 

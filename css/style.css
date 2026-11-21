@@ -2,23 +2,23 @@
    Wedding Invitation — Editorial Luxury Theme
    Inspired by high-fashion editorial wedding aesthetics:
    Marcellus · EB Garamond · Jost
-   Warm Linen (#FAF6F2) · Deep Aubergine (#2E1C27) · Rich Copper (#A35232)
+   Warm Linen (#F4EEE7) · Deep Aubergine (#2E1C27) · Rich Copper (#A35232)
 ═══════════════════════════════════════════════════════════════ */
 
 :root {
-  --bg: #FAF6F2;
-  --bg-secondary: #F3ECE5;
+  --bg: #F4EEE7;
+  --bg-secondary: #ECE3DA;
   --fg: #765530;
-  --card: #FFFFFF;
-  --card-subtle: #FDFBF9;
+  --card: #FCF9F5;
+  --card-subtle: #F8F3EE;
   --copper: #A35232;
   --copper-hover: #8A4124;
   --copper-light: #C97D5D;
-  --blush: #E8DDD7;
-  --blush-light: #F4EDE8;
+  --blush: #E2D6CF;
+  --blush-light: #EEE5DE;
   --muted: #73656C;
   --muted-light: #9B8E95;
-  --border: #D8CCC5;
+  --border: #D2C5BD;
   --border-subtle: rgba(46, 28, 39, 0.15);
   --border-copper: rgba(163, 82, 50, 0.45);
   --aubergine-overlay: rgba(35, 20, 30, 0.46);
@@ -111,7 +111,7 @@ button, input, textarea, select {
 }
 
 .site-header.scrolled {
-  background-color: rgba(250, 246, 242, 0.94);
+  background-color: rgba(244, 238, 231, 0.94);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   color: var(--fg);
@@ -1659,53 +1659,28 @@ button, input, textarea, select {
   color: var(--bg);
 }
 
-.select-guests {
-  width: 100%;
-  background: transparent;
-  border: none;
-  border-bottom: 1px solid var(--border);
-  padding: 0.6rem 0;
-  font-family: var(--font-serif);
-  font-size: 1.15rem;
-  color: var(--fg);
-  outline: none;
-  cursor: pointer;
+.form-optional {
+  text-transform: none;
+  letter-spacing: 0.04em;
+  font-style: italic;
+  color: var(--muted-light);
 }
 
-.whatsapp-fast-row {
-  margin: 2.5rem 0 1.5rem;
-  padding: 1.5rem;
-  background-color: var(--bg-secondary);
-  border: 1px solid var(--border);
-  border-radius: 2px;
-  text-align: center;
+.rsvp-send-group {
+  margin-top: 0.4rem;
+  margin-bottom: 0;
 }
 
-@media (max-width: 600px) {
-  .whatsapp-fast-row {
-    padding: 1.25rem 1rem;
-    margin: 2rem 0 1.2rem;
-  }
-}
-
-.whatsapp-fast-title {
-  font-size: 0.72rem;
-  text-transform: uppercase;
-  letter-spacing: 0.25em;
-  color: var(--muted);
-  margin-bottom: 1rem;
-}
-
+/* The two send buttons: one per partner, equal width */
 .whatsapp-buttons-wrap {
-  display: flex;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 1rem;
-  flex-wrap: wrap;
 }
 
 @media (max-width: 540px) {
   .whatsapp-buttons-wrap {
-    flex-direction: column;
+    grid-template-columns: 1fr;
     gap: 0.6rem;
   }
 }
@@ -1713,28 +1688,32 @@ button, input, textarea, select {
 .btn-whatsapp-rsvp {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.75rem 1.4rem;
-  font-size: 0.72rem;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 1.1rem 1.2rem;
+  font-size: 0.75rem;
   text-transform: uppercase;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.22em;
   border: 1px solid var(--copper);
-  color: var(--copper);
-  background-color: transparent;
+  color: #FFFFFF;
+  background-color: var(--copper);
   transition: var(--transition-smooth);
 }
 
-@media (max-width: 540px) {
-  .btn-whatsapp-rsvp {
-    width: 100%;
-    justify-content: center;
-    padding: 0.75rem 1rem;
-  }
+.btn-whatsapp-rsvp svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
 }
 
 .btn-whatsapp-rsvp:hover {
-  background-color: var(--copper);
-  color: #FFFFFF;
+  background-color: var(--copper-hover);
+  border-color: var(--copper-hover);
+}
+
+.btn-whatsapp-rsvp:focus-visible {
+  outline: 2px solid var(--copper);
+  outline-offset: 3px;
 }
 
 /* ── Blessings Wall (Guestbook) ───────────────────────────── */
@@ -1757,15 +1736,10 @@ button, input, textarea, select {
   }
 }
 
+/* Two columns so the four messages sit as an even 2 × 2 */
 @media (min-width: 680px) {
   .blessings-grid {
     grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (min-width: 1024px) {
-  .blessings-grid {
-    grid-template-columns: repeat(3, 1fr);
   }
 }
 
@@ -2085,7 +2059,7 @@ button, input, textarea, select {
   bottom: 1.8rem;
   right: 1.8rem;
   z-index: 90;
-  background-color: rgba(250, 246, 242, 0.92);
+  background-color: rgba(244, 238, 231, 0.92);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   border: 1px solid var(--border);
