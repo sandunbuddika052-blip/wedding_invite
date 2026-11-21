@@ -2398,12 +2398,29 @@ body.locked {
     grid-template-columns: repeat(2, 1fr);
     gap: 2.2rem 1.8rem;
   }
+
+  /* A lone card in the last row sits centred instead of hugging the left */
+  .artisan-card:last-child:nth-child(2n + 1) {
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: calc(50% - 0.9rem);
+  }
 }
 
 @media (min-width: 960px) {
   .artisans-grid {
     grid-template-columns: repeat(3, 1fr);
     gap: 2.5rem 2rem;
+  }
+
+  .artisan-card:last-child:nth-child(2n + 1) {
+    grid-column: auto;
+    justify-self: stretch;
+    width: auto;
+  }
+
+  .artisan-card:last-child:nth-child(3n + 1) {
+    grid-column: 2;
   }
 }
 

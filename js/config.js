@@ -146,6 +146,11 @@ const WEDDING_CONFIG = {
       name: "Salon Thish Bridal & Beauty",
       desc: "Creating radiant bridal glow, elegant drapes & timeless beauty for our special day."
     },
+    groomSalon: {
+      role: "Groom's Salon",
+      name: "Mirror Salon",
+      desc: "Sharp, polished grooming so the groom looks his very best on our special day."
+    },
     groomOutfit: {
       role: "Groom's Designer Attire",
       name: "A Wed Design by Ashok Duminda"
