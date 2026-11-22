@@ -38,12 +38,12 @@ HERO_WIDE_BOX = (0, 2830, 2796, 2830 + 1748)
 # Same centred strip at 2:3 for phones and portrait tablets, keeping the canopy
 HERO_TALL_BOX = (0, 1106, 2796, 1106 + 4194)
 # Link preview: the close embrace, 1.91:1, from well above their heads down
-# to the embrace at the waist. That is much wider than the photo, so the
-# soft, out-of-focus background is extended by SHARE_PAD px on each side
-# (the outer 600 px of each edge are background only).
+# to the hips. That is much wider than the photo, so the soft, out-of-focus
+# background is extended by SHARE_PAD px on each side (the outer 600 px of
+# each edge are background only).
 SHARE_PHOTO = "3T1A0763"
-SHARE_ROWS = (1350, 4450)
-SHARE_PAD = 1052
+SHARE_ROWS = (1150, 4950)
+SHARE_PAD = 1721
 SHARE_SIZE = (1600, 838)
 
 CARD = '''          <div class="masonry-card" data-category="{cat}" data-full="assets/images/shoot/display/gallery-{n:02d}.jpg?v={v}" onclick="openLightboxAtIndex({i})">
