@@ -5,7 +5,7 @@ Reads the full-size originals from "New Phtos/" and writes:
   assets/images/shoot/display/gallery-NN.jpg  lightbox images (1600px long side)
   assets/images/hero.jpg                      hero for tall screens, couple centred
   assets/images/hero-wide.jpg                 hero for wide screens, couple centred
-  assets/images/share-cover.jpg               link preview for WhatsApp etc. (1200x630)
+  assets/images/share-cover.jpg               link preview for WhatsApp etc. (1600x838)
 Camera metadata is dropped; the sRGB colour profile is kept.
 
 It also rewrites the gallery cards in index.html and the gallery list in
@@ -17,7 +17,7 @@ usage: python3 scratch/prepare_photos.py
 import glob
 import os
 import re
-from PIL import Image, ImageOps
+from PIL import Image, ImageFilter, ImageOps
 
 SRC = "New Phtos"
 OUT_WEB = "assets/images/shoot/web"
@@ -37,10 +37,12 @@ HERO = "3T1A0659"
 HERO_WIDE_BOX = (0, 2830, 2796, 2830 + 1748)
 # Same centred strip at 2:3 for phones and portrait tablets, keeping the canopy
 HERO_TALL_BOX = (0, 1106, 2796, 1106 + 4194)
-# Link preview: the close embrace at full width, 1.91:1, from above their
-# heads to the chest, faces (around x 1845, y 2610) near the middle
+# Link preview: the close embrace, 1.91:1, cropped close (just above their
+# heads to the shoulders) so the faces (around x 1845, y 2610) stay sharp
+# after WhatsApp shrinks and recompresses it
 SHARE_PHOTO = "3T1A0763"
-SHARE_BOX = (0, 1450, 3816, 1450 + 1998)
+SHARE_BOX = (400, 1640, 3400, 1640 + 1571)
+SHARE_SIZE = (1600, 838)
 
 CARD = '''          <div class="masonry-card" data-category="{cat}" data-full="assets/images/shoot/display/gallery-{n:02d}.jpg?v={v}" onclick="openLightboxAtIndex({i})">
             <div class="masonry-card-inner">
@@ -134,8 +136,9 @@ def main():
     print("hero-wide.jpg       ", HERO, wide.size)
 
     im, icc = load(SHARE_PHOTO)
-    share = im.crop(SHARE_BOX).resize((1200, 630), Image.LANCZOS)
-    save(share, "assets/images/share-cover.jpg", icc, 82)
+    share = im.crop(SHARE_BOX).resize(SHARE_SIZE, Image.LANCZOS)
+    share = share.filter(ImageFilter.UnsharpMask(radius=1.2, percent=60, threshold=2))
+    save(share, "assets/images/share-cover.jpg", icc, 90)
     print("share-cover.jpg     ", SHARE_PHOTO, share.size)
 
 
