@@ -119,9 +119,7 @@ const WEDDING_CONFIG = {
     { url: "assets/images/shoot/web/gallery-14.jpg", full: "assets/images/shoot/display/gallery-14.jpg", category: "sunlit" },
     { url: "assets/images/shoot/web/gallery-15.jpg", full: "assets/images/shoot/display/gallery-15.jpg", category: "midnight" },
     { url: "assets/images/shoot/web/gallery-16.jpg", full: "assets/images/shoot/display/gallery-16.jpg", category: "midnight" },
-    { url: "assets/images/shoot/web/gallery-17.jpg", full: "assets/images/shoot/display/gallery-17.jpg", category: "midnight" },
-    { url: "assets/images/shoot/web/gallery-18.jpg", full: "assets/images/shoot/display/gallery-18.jpg", category: "midnight" },
-    { url: "assets/images/shoot/web/gallery-19.jpg", full: "assets/images/shoot/display/gallery-19.jpg", category: "midnight" }
+    { url: "assets/images/shoot/web/gallery-17.jpg", full: "assets/images/shoot/display/gallery-17.jpg", category: "midnight" }
   ],
 
   /* ───── 💌 INVITATION CARD ───── */
