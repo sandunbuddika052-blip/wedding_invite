@@ -37,11 +37,12 @@ HERO = "3T1A0659"
 HERO_WIDE_BOX = (0, 2830, 2796, 2830 + 1748)
 # Same centred strip at 2:3 for phones and portrait tablets, keeping the canopy
 HERO_TALL_BOX = (0, 1106, 2796, 1106 + 4194)
-# Link preview: the close embrace, 1.91:1, cropped close (just above their
-# heads to the shoulders) so the faces (around x 1845, y 2610) stay sharp
-# after WhatsApp shrinks and recompresses it
+# Link preview: the close embrace, 1.91:1, from above their heads down to
+# her hand on his chest. That is wider than the photo, so the soft,
+# out-of-focus background is extended by SHARE_PAD px on each side.
 SHARE_PHOTO = "3T1A0763"
-SHARE_BOX = (400, 1640, 3400, 1640 + 1571)
+SHARE_ROWS = (1500, 3908)
+SHARE_PAD = 392
 SHARE_SIZE = (1600, 838)
 
 CARD = '''          <div class="masonry-card" data-category="{cat}" data-full="assets/images/shoot/display/gallery-{n:02d}.jpg?v={v}" onclick="openLightboxAtIndex({i})">
@@ -81,6 +82,30 @@ def fit_long_side(im, size):
     out = im.copy()
     out.thumbnail((size, size), Image.LANCZOS)
     return out
+
+
+def extend_sides(photo, pad):
+    """Widen a photo whose edges are out-of-focus background: mirror the
+    outer strips outward and blur them more the further they get from the
+    photo, so the join can't be seen."""
+    w, h = photo.size
+    canvas = Image.new("RGB", (w + 2 * pad, h))
+    canvas.paste(photo, (pad, 0))
+    left = ImageOps.mirror(photo.crop((0, 0, pad, h)))
+    right = ImageOps.mirror(photo.crop((w - pad, 0, w, h)))
+    canvas.paste(left, (0, 0))
+    canvas.paste(right, (pad + w, 0))
+    blurred = canvas.filter(ImageFilter.GaussianBlur(40))
+    # 0 inside the photo, rising to 1 at the outer edges
+    ramp = Image.new("L", canvas.size, 0)
+    px = ramp.load()
+    for x in range(canvas.width):
+        d = max(pad - x, x - (pad + w - 1), 0)
+        v = int(255 * min(1.0, (d + 60) / (pad + 60))) if d > 0 else 0
+        for y in range(h):
+            px[x, y] = v
+    ramp = ramp.filter(ImageFilter.GaussianBlur(30))
+    return Image.composite(blurred, canvas, ramp)
 
 
 def remove_leftovers(count):
@@ -136,7 +161,8 @@ def main():
     print("hero-wide.jpg       ", HERO, wide.size)
 
     im, icc = load(SHARE_PHOTO)
-    share = im.crop(SHARE_BOX).resize(SHARE_SIZE, Image.LANCZOS)
+    share = extend_sides(im.crop((0, SHARE_ROWS[0], im.width, SHARE_ROWS[1])), SHARE_PAD)
+    share = share.resize(SHARE_SIZE, Image.LANCZOS)
     share = share.filter(ImageFilter.UnsharpMask(radius=1.2, percent=60, threshold=2))
     save(share, "assets/images/share-cover.jpg", icc, 90)
     print("share-cover.jpg     ", SHARE_PHOTO, share.size)
