@@ -1393,53 +1393,55 @@ button, input, textarea, select {
   transform: translateY(-1px);
 }
 
-/* ── Masonry Staggered Gallery (Pinterest / Modern Editorial) ── */
+/* ── Masonry Staggered Gallery (Pinterest / Modern Editorial) ──
+   Not CSS columns: iPhone Safari sometimes skips drawing cards inside
+   them (blank but still tappable). main.js places each card in the
+   shortest .masonry-col instead; without it, a plain 2-column grid. */
 .masonry-grid {
-  column-count: 2;
-  column-gap: 0.85rem;
+  --masonry-gap: 0.85rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--masonry-gap);
+  align-items: start;
   max-width: 1240px;
   margin: 0 auto;
   padding: 0 0.5rem;
+  transition: opacity 0.35s ease;
 }
 
 @media (min-width: 640px) {
   .masonry-grid {
-    column-count: 3;
-    column-gap: 1.1rem;
+    --masonry-gap: 1.1rem;
     padding: 0 1rem;
   }
 }
 
 @media (min-width: 1024px) {
   .masonry-grid {
-    column-count: 4;
-    column-gap: 1.35rem;
+    --masonry-gap: 1.35rem;
     padding: 0;
   }
 }
 
+.masonry-grid.is-columns {
+  display: flex;
+}
+
+.masonry-grid.is-switching {
+  opacity: 0;
+}
+
+.masonry-col {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--masonry-gap);
+}
+
 .masonry-card {
-  break-inside: avoid;
-  -webkit-column-break-inside: avoid;
-  page-break-inside: avoid;
-  margin-bottom: 0.85rem;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
-  transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: transform, opacity;
-}
-
-@media (min-width: 640px) {
-  .masonry-card {
-    margin-bottom: 1.1rem;
-  }
-}
-
-@media (min-width: 1024px) {
-  .masonry-card {
-    margin-bottom: 1.35rem;
-  }
 }
 
 .masonry-card-inner {

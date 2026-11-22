@@ -26,9 +26,9 @@ OUT_DISPLAY = "assets/images/shoot/display"
 GALLERY_VERSION = 3
 
 # Gallery order: night and day shots alternate in the "All" view, with the
-# colour and black-and-white 2115 frames (and the two wide building shots) kept apart
+# two wide building shots kept apart
 MIDNIGHT = ["3T1A1891", "3T1A2042", "3T1A1586", "3T1A1731", "3T1A2115",
-            "3T1A1877", "3T1A1786", "3T1A1573", "3T1A1617", "3T1A2115-2"]
+            "3T1A1877", "3T1A1786", "3T1A1573", "3T1A1617"]
 SUNLIT = ["3T1A0659", "3T1A0763", "3T1A0619", "3T1A1231", "3T1A0881", "3T1A1381", "3T1A0986"]
 HERO = "3T1A0659"
 # In the hero original the couple spans x 760-2035 (centre 1398) and heads
@@ -47,7 +47,7 @@ SHARE_SIZE = (1600, 838)
 
 CARD = '''          <div class="masonry-card" data-category="{cat}" data-full="assets/images/shoot/display/gallery-{n:02d}.jpg?v={v}" onclick="openLightboxAtIndex({i})">
             <div class="masonry-card-inner">
-              <img src="assets/images/shoot/web/gallery-{n:02d}.jpg?v={v}" alt="Wedding photo" class="masonry-img" loading="lazy" />
+              <img src="assets/images/shoot/web/gallery-{n:02d}.jpg?v={v}" alt="Wedding photo" class="masonry-img" width="{w}" height="{h}" loading="lazy" />
               <div class="masonry-card-overlay">
                 <span class="masonry-expand-badge" aria-hidden="true">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
@@ -117,8 +117,10 @@ def remove_leftovers(count):
                 print("removed", path)
 
 
-def update_markup(order):
-    cards = "\n".join(CARD.format(cat=cat, n=i + 1, i=i, v=GALLERY_VERSION)
+def update_markup(order, sizes):
+    # width/height give each card its shape before the photo loads, which
+    # the gallery layout in main.js relies on
+    cards = "\n".join(CARD.format(cat=cat, n=i + 1, i=i, v=GALLERY_VERSION, w=sizes[i][0], h=sizes[i][1])
                       for i, (_, cat) in enumerate(order))
     html = open("index.html", encoding="utf-8").read()
     m = re.search(r'(<div class="masonry-grid" id="galleryGrid">\n)(.*?)(\n        </div>\n\n      </div>\n    </section>)', html, re.S)
@@ -142,14 +144,17 @@ def main():
     os.makedirs(OUT_WEB, exist_ok=True)
     os.makedirs(OUT_DISPLAY, exist_ok=True)
     order = gallery_order()
+    sizes = []
     for n, (name, cat) in enumerate(order, start=1):
         im, icc = load(name)
         slot = f"gallery-{n:02d}.jpg"
-        save(fit_long_side(im, 800), os.path.join(OUT_WEB, slot), icc, 80)
+        thumb = fit_long_side(im, 800)
+        sizes.append(thumb.size)
+        save(thumb, os.path.join(OUT_WEB, slot), icc, 80)
         save(fit_long_side(im, 1600), os.path.join(OUT_DISPLAY, slot), icc, 82)
         print(f"{slot}  {cat:8s}  {name}")
     remove_leftovers(len(order))
-    update_markup(order)
+    update_markup(order, sizes)
 
     im, icc = load(HERO)
     hero = im.crop(HERO_TALL_BOX).resize((1400, 2100), Image.LANCZOS)

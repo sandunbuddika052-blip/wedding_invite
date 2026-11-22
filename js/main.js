@@ -636,27 +636,91 @@
     }
   };
 
+  /* Masonry layout: each visible card goes into the currently shortest
+     column. The photos' width/height attributes give their shape before
+     they load, so the columns balance straight away. */
+  let galleryCards = [];
+  let galleryFilter = "all";
+  let galleryColumnCount = 0;
+
+  function galleryColumnsFor(width) {
+    if (width >= 1024) return 4;
+    if (width >= 640) return 3;
+    return 2;
+  }
+
+  function cardRatio(card) {
+    const img = card.querySelector("img");
+    const w = Number(img && img.getAttribute("width"));
+    const h = Number(img && img.getAttribute("height"));
+    return w && h ? h / w : 1;
+  }
+
+  function layoutGallery() {
+    const grid = $("galleryGrid");
+    if (!grid || !galleryCards.length) return;
+
+    galleryColumnCount = galleryColumnsFor(window.innerWidth);
+    const cols = [];
+    const heights = [];
+    for (let i = 0; i < galleryColumnCount; i++) {
+      const col = document.createElement("div");
+      col.className = "masonry-col";
+      cols.push(col);
+      heights.push(0);
+    }
+
+    galleryCards.forEach((card) => {
+      const visible = galleryFilter === "all" || card.getAttribute("data-category") === galleryFilter;
+      card.hidden = !visible;
+      if (!visible) {
+        cols[0].appendChild(card); // kept in the page, just not shown
+        return;
+      }
+      const shortest = heights.indexOf(Math.min(...heights));
+      cols[shortest].appendChild(card);
+      heights[shortest] += cardRatio(card) + 0.05; // small allowance for the gap
+    });
+
+    grid.replaceChildren(...cols);
+    grid.classList.add("is-columns");
+  }
+
+  function setupGallery() {
+    try {
+      const grid = $("galleryGrid");
+      if (!grid) return;
+      // Lightbox order follows the original card order, so record it first
+      collectGalleryItems();
+      galleryCards = galleryItems.map((it) => it.element);
+      layoutGallery();
+
+      let resizeTimer = null;
+      window.addEventListener("resize", () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => {
+          if (galleryColumnsFor(window.innerWidth) !== galleryColumnCount) layoutGallery();
+        }, 150);
+      });
+    } catch (e) {
+      console.warn("Gallery setup:", e);
+    }
+  }
+
   window.filterGallery = function (cat, btn) {
     const buttons = document.querySelectorAll(".gallery-filter-btn");
     buttons.forEach((b) => b.classList.remove("active"));
     if (btn) btn.classList.add("active");
 
-    const cards = document.querySelectorAll(".masonry-card");
-    cards.forEach((card) => {
-      const cardCat = card.getAttribute("data-category");
-      if (cat === "all" || cardCat === cat) {
-        card.style.display = "block";
-        card.style.opacity = "0";
-        card.style.transform = "translateY(12px)";
-        setTimeout(() => {
-          card.style.transition = "opacity 0.4s ease, transform 0.4s ease";
-          card.style.opacity = "1";
-          card.style.transform = "translateY(0)";
-        }, 30);
-      } else {
-        card.style.display = "none";
-      }
-    });
+    galleryFilter = cat;
+    const grid = $("galleryGrid");
+    if (!grid) return;
+    // Fade the whole grid out, rearrange, fade back in
+    grid.classList.add("is-switching");
+    setTimeout(() => {
+      layoutGallery();
+      grid.classList.remove("is-switching");
+    }, 200);
   };
 
   // Keyboard navigation
@@ -819,6 +883,7 @@
     setupCalendarDownload();
     setupRSVP();
     renderBlessings();
+    setupGallery();
     setupAudio();
   });
 
