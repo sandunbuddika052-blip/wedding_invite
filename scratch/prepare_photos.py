@@ -37,12 +37,13 @@ HERO = "3T1A0659"
 HERO_WIDE_BOX = (0, 2830, 2796, 2830 + 1748)
 # Same centred strip at 2:3 for phones and portrait tablets, keeping the canopy
 HERO_TALL_BOX = (0, 1106, 2796, 1106 + 4194)
-# Link preview: the close embrace, 1.91:1, from above their heads down to
-# her hand on his chest. That is wider than the photo, so the soft,
-# out-of-focus background is extended by SHARE_PAD px on each side.
+# Link preview: the close embrace, 1.91:1, from well above their heads down
+# to the embrace at the waist. That is much wider than the photo, so the
+# soft, out-of-focus background is extended by SHARE_PAD px on each side
+# (the outer 600 px of each edge are background only).
 SHARE_PHOTO = "3T1A0763"
-SHARE_ROWS = (1500, 3908)
-SHARE_PAD = 392
+SHARE_ROWS = (1350, 4450)
+SHARE_PAD = 1052
 SHARE_SIZE = (1600, 838)
 
 CARD = '''          <div class="masonry-card" data-category="{cat}" data-full="assets/images/shoot/display/gallery-{n:02d}.jpg?v={v}" onclick="openLightboxAtIndex({i})">
@@ -84,15 +85,16 @@ def fit_long_side(im, size):
     return out
 
 
-def extend_sides(photo, pad):
+def extend_sides(photo, pad, strip=600):
     """Widen a photo whose edges are out-of-focus background: mirror the
-    outer strips outward and blur them more the further they get from the
-    photo, so the join can't be seen."""
+    outer `strip` px outward (stretched to fill `pad`), and blur it more the
+    further it gets from the photo, so the join can't be seen."""
     w, h = photo.size
     canvas = Image.new("RGB", (w + 2 * pad, h))
     canvas.paste(photo, (pad, 0))
-    left = ImageOps.mirror(photo.crop((0, 0, pad, h)))
-    right = ImageOps.mirror(photo.crop((w - pad, 0, w, h)))
+    strip = min(strip, pad)
+    left = ImageOps.mirror(photo.crop((0, 0, strip, h))).resize((pad, h), Image.LANCZOS)
+    right = ImageOps.mirror(photo.crop((w - strip, 0, w, h))).resize((pad, h), Image.LANCZOS)
     canvas.paste(left, (0, 0))
     canvas.paste(right, (pad + w, 0))
     blurred = canvas.filter(ImageFilter.GaussianBlur(40))
